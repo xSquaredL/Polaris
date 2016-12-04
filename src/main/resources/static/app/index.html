@@ -10,7 +10,7 @@
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-    <!-- Bootstrap core CSS     -->
+    <!-- Bootstrap core main     -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
@@ -26,15 +26,56 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>-->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js"></script>-->
+  <!--<script src="/bower_components/oauth-signature/dist/oauth-signature.min.js"></script>-->
+  <!--<script src="/bower_components/oauth-signature/dist/oauth-signature.js"></script>-->
 </head>
 <body>
 <div ui-view></div>
+<!--<script>-->
+            <!--function randomString(length, chars) {-->
+                <!--var result = '';-->
+                <!--for (var i = length; i > 0; &#45;&#45;i) result += chars[Math.round(Math.random() * (chars.length - 1))];-->
+                <!--return result;-->
+            <!--}-->
+            <!--var app = angular.module('plunker', []);-->
 
+            <!--app.controller('MainCtrl', ['$scope', 'MyYelpAPI', function($scope, MyYelpAPI) {-->
+                <!--$scope.businesses = [];-->
+
+                <!--MyYelpAPI.retrieveYelp('', function(data) {-->
+                    <!--$scope.businesses = data.businesses;-->
+                <!--});-->
+            <!--}]).factory("MyYelpAPI", function($http) {-->
+                <!--return {-->
+                    <!--"retrieveYelp": function(name, callback) {-->
+                        <!--var method = 'GET';-->
+                        <!--var url = 'http://api.yelp.com/v2/search';-->
+                        <!--var params = {-->
+                                <!--callback: 'angular.callbacks._0',-->
+                                <!--location: 'San+Francisco',-->
+                                <!--oauth_consumer_key: '', //Consumer Key-->
+                                <!--oauth_token: '', //Token-->
+                                <!--oauth_signature_method: "HMAC-SHA1",-->
+                                <!--oauth_timestamp: new Date().getTime(),-->
+                                <!--oauth_nonce: randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'),-->
+                                <!--term: 'food'-->
+                            <!--};-->
+                        <!--var consumerSecret = ''; //Consumer Secret-->
+                        <!--var tokenSecret = ''; //Token Secret-->
+                        <!--var signature = oauthSignature.generate(method, url, params, consumerSecret, tokenSecret, { encodeSignature: false});-->
+                        <!--params['oauth_signature'] = signature;-->
+                        <!--$http.jsonp(url, {params: params}).success(callback);-->
+                    <!--}-->
+                <!--}-->
+            <!--});-->
+        <!--</script>-->
 </body>
 
     <!--   Core JS Files   -->
-	
+
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -45,7 +86,8 @@
     <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="../bower_components/angular-touch/angular-touch.js"></script>
     <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-
+    <script src="../bower_components/oauth-signature/dist/oauth-signature.js"></script>
+    <script src="../bower_components/oauth-signature/dist/oauth-signature.min.js"></script>
 	<!--  Checkbox, Radio & Switch Plugins -->
 	<script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
 
@@ -57,6 +99,8 @@
 
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <!--<script src="bower_components/oauth-signature/dist/oauth-signature.js"></script>-->
+  <!--<script src="bower_components/oauth-signature/dist/oauth-signature.min.js"></script>-->
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 	<script src="assets/js/light-bootstrap-dashboard.js"></script>

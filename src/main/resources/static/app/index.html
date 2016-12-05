@@ -5,12 +5,12 @@
 	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>CS598 Project</title>
+	<title>Polaris</title>
 
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
-    <!-- Bootstrap core CSS     -->
+    <!-- Bootstrap core main     -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
@@ -21,20 +21,26 @@
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="assets/css/demo.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../bower_components/angular-tag-cloud/src/css/ng-tag-cloud.css">
 
     <!--     Fonts and icons     -->
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
     <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
-
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>-->
+  <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.js"></script>-->
+  <!--<script src="/bower_components/oauth-signature/dist/oauth-signature.min.js"></script>-->
+  <!--<script src="/bower_components/oauth-signature/dist/oauth-signature.js"></script>-->
+  
+ 	<link rel="stylesheet" href="../bower_components/angular-datatables/dist/css/angular-datatables.min.css">
 </head>
 <body>
 <div ui-view></div>
-
 </body>
 
     <!--   Core JS Files   -->
-	
+
     <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -45,7 +51,13 @@
     <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="../bower_components/angular-touch/angular-touch.js"></script>
     <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-
+    <script src="../bower_components/oauth-signature/dist/oauth-signature.js"></script>
+    <script src="../bower_components/oauth-signature/dist/oauth-signature.min.js"></script>
+    <script src="../bower_components/jqcloud2/dist/jqcloud.min.js"></script>
+	<script src="../bower_components/angular-tag-cloud/src/ng-tag-cloud.js"></script>
+	<script src="../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script src="../bower_components/angular-datatables/dist/angular-datatables.min.js"></script>
+	
 	<!--  Checkbox, Radio & Switch Plugins -->
 	<script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
 
@@ -57,11 +69,14 @@
 
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+  <!--<script src="bower_components/oauth-signature/dist/oauth-signature.js"></script>-->
+  <!--<script src="bower_components/oauth-signature/dist/oauth-signature.min.js"></script>-->
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 	<script src="assets/js/light-bootstrap-dashboard.js"></script>
 
     <script src="scripts/controllers/dashboard-controller.js"></script>
+    <script src="scripts/controllers/tripadvisor-controller.js"></script>
     <script src="scripts/app.js"></script>
 
 </html>

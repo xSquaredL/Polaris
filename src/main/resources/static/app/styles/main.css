@@ -16,7 +16,10 @@ body {
   padding-left: 15px;
   padding-right: 15px;
 }
-
+.detail{
+  color: deepskyblue;
+  font-size: 40px;
+}
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
@@ -80,4 +83,6 @@ body {
   .jumbotron {
     border-bottom: 0;
   }
+  
+  
 }

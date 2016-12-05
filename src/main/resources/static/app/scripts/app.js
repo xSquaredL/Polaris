@@ -8,13 +8,16 @@ var app = angular.module('app', [
     'ngSanitize',
     'ngTouch',
     'ui.router',
-    'app.dashboard'
+    'app.dashboard',
+    'app.tripadvisor',
+    'ngTagCloud',
+    'datatables'
   ])
   .run(
   [          '$rootScope', '$state', '$stateParams',
     function ($rootScope,   $state,   $stateParams) {
         $rootScope.$state = $state;
-        $rootScope.$stateParams = $stateParams;        
+        $rootScope.$stateParams = $stateParams;
     }
   ]
 )
@@ -28,7 +31,7 @@ var app = angular.module('app', [
       app.service    = $provide.service;
       app.constant   = $provide.constant;
       app.value      = $provide.value;
-      
+
 	  $urlRouterProvider.otherwise('/app/dashboard');
 	  $stateProvider
 	      .state('app', {
@@ -41,15 +44,31 @@ var app = angular.module('app', [
 	    	  templateUrl: 'views/dashboard.html',
 	    	  controller: 'DashboardCtrl',
 	    	  data: {
-	    		  title: "Dashboard"
-	    	  } 
-          })  
-	      .state('app.yelp',{
+	    		  title: 'Dashboard'
+	    	  }
+          })
+        .state('app.taskdetail', {
+          url: '/detail/:city/:hotel',
+          templateUrl: 'views/taskdetail.html',
+          controller: 'TaskDetailCtrl',
+          data: {
+            title: 'Detail'
+          }
+        })
+        .state('app.yelp',{
 	    	  url: '/yelp',
 	    	  templateUrl: 'views/yelp.html',
 	    	  controller: 'DashboardCtrl',
 	    	  data: {
-	    		  title: "Yelp"
-	    	  } 
-          })  
+	    		  title: 'Yelp'
+	    	  }
+        })
+        .state('app.tripadvisor',{
+	    	  url: '/tripadvisor',
+	    	  templateUrl: 'views/tripadvisor.html',
+	    	  controller: 'TripAdvisorCtrl',
+	    	  data: {
+	    		  title: 'TripAdvisor'
+	    	  }
+        });
   }]);

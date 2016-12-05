@@ -1,0 +1,135 @@
+<div class="content">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-8">
+				<div class="card">
+					<div class="header">
+						<h4 class="title"><a href="https://tripadvisor.com{{business.hotelURL}}" target="_blank">{{business.hotelName}}</a></h4>
+						<p class="category">{{business.hotelRanking}}</p>
+					</div>
+					<div class="content">
+						<table class="table">
+							<tbody>
+								<tr>
+									<td>Business Type</td>
+									<td>Hotel</td>
+								</tr>
+								<tr>
+									<td>City</td>
+									<td>{{business.city}}</td>
+								</tr>
+								<tr>
+									<td>Rating</td>
+									<td><i class="fa text-success"
+										ng-class="business.numBubbles >= 1 ? 'fa-star':'fa-star-o'"></i> <i
+										class="fa text-success"
+										ng-class="business.numBubbles >= 2 ? 'fa-star':'fa-star-o'"></i> <i
+										class="fa text-success"
+										ng-class="business.numBubbles >= 3 ? 'fa-star':'fa-star-o'"></i> <i
+										class="fa text-success"
+										ng-class="business.numBubbles >= 4 ? 'fa-star':'fa-star-o'"></i> <i
+										class="fa text-success"
+										ng-class="business.numBubbles >= 5 ? 'fa-star':'fa-star-o'"></i>
+							<p class="category text-success">{{business.bubbles}}</p>
+										</td>
+								</tr>
+								<tr>
+									<td>Number of Reviews</td>
+									<td>{{business.numberOfReviews}}</td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="card">
+					<div class="header">
+						<h4 class="title">Top Suspicious Reviews</h4>
+					</div>
+					<div class="content">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Reviewer</th>
+									<th>Rating</th>
+									<th>Review</th>
+									<th width="10%">Feedback</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>reviewer123</td>
+									<td>
+										<i class="fa text-success"
+											ng-class="business.rating >= 1 ? 'fa-star':'fa-star-o'"></i> <i
+											class="fa text-success"
+											ng-class="business.rating >= 2 ? 'fa-star':'fa-star-o'"></i> <i
+											class="fa text-success"
+											ng-class="business.rating >= 3 ? 'fa-star':'fa-star-o'"></i> <i
+											class="fa text-success"
+											ng-class="business.rating >= 4 ? 'fa-star':'fa-star-o'"></i> <i
+											class="fa text-success"
+											ng-class="business.rating >= 5 ? 'fa-star':'fa-star-o'"></i>
+										</td>
+									<td>This is the review</td>
+									<td>
+									<button class="btn btn-simple">
+										<i class="fa fa-thumbs-o-up text-success"></i>
+									</button>
+									<button class="btn btn-simple">
+										<i class="fa fa-thumbs-o-down text-danger"></i>
+									</button>
+									</td>
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="card">
+					<div class="header">
+						<h4 class="title">Topics</h4>
+						<hr>
+					</div>
+					<div class="content">
+						<ng-tag-cloud cloud-width="600" cloud-height="250"
+							cloud-data="data"></ng-tag-cloud>
+						<!-- default height and width is 300px -->
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="card">
+					<div class="header">
+						<h4 class="title">Company Grade</h4>
+						<hr>
+					</div>
+					<div class="content">
+						<div class="grade-rating font-grade-a">A</div>
+						<div class="footer">
+							<hr>
+							<div>Detected 5% low quality reviews</div>
+						</div>
+					</div>
+
+				</div>
+				<div class="card">
+					<div class="header">
+						<h5 class="title">Do you agree with this analysis?</h5>
+					</div>
+					<div class="content">
+						<hr>
+						<button class="btn btn-simple">
+							<i class="fa fa-thumbs-o-up text-success"></i>
+						</button>
+						<button class="btn btn-simple">
+							<i class="fa fa-thumbs-o-down text-danger"></i>
+						</button>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

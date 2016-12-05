@@ -51,16 +51,16 @@
 							<thead>
 								<tr>
 									<th>Reviewer</th>
-									<th>Rating</th>
 									<th>Review</th>
-									<th width="10%">Feedback</th>
+									<th style="text-align:center">Ranking Score</th>
+									<th width="35px" style="text-align:center">Feedback</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>reviewer123</td>
+									<td>reviewer1</td>
 									<td>
-										<i class="fa text-success"
+										<p><i class="fa text-success"
 											ng-class="business.rating >= 1 ? 'fa-star':'fa-star-o'"></i> <i
 											class="fa text-success"
 											ng-class="business.rating >= 2 ? 'fa-star':'fa-star-o'"></i> <i
@@ -69,17 +69,21 @@
 											class="fa text-success"
 											ng-class="business.rating >= 4 ? 'fa-star':'fa-star-o'"></i> <i
 											class="fa text-success"
-											ng-class="business.rating >= 5 ? 'fa-star':'fa-star-o'"></i>
-										</td>
-									<td>This is the review</td>
-									<td>
-									<button class="btn btn-simple">
-										<i class="fa fa-thumbs-o-up text-success"></i>
-									</button>
-									<button class="btn btn-simple">
-										<i class="fa fa-thumbs-o-down text-danger"></i>
-									</button>
+											ng-class="business.rating >= 5 ? 'fa-star':'fa-star-o'"></i></p>
+											This is the review
 									</td>
+									<td align="center">
+									<p class="text-danger">-0.1761</p>
+									<p class="category">Highly Unreliable</p>
+									</td>
+									<td align="center">
+										<button class="btn btn-simple">
+											<i class="fa fa-thumbs-o-up text-success"></i>
+										</button>
+										<button class="btn btn-simple">
+											<i class="fa fa-thumbs-o-down text-danger"></i>
+										</button>
+									</td>								
 								</tr>
 								
 							</tbody>

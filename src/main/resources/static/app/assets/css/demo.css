@@ -59,4 +59,16 @@
 .table-upgrade td:nth-child(3){
     text-align: center;
 }
+.grade-rating {
+    display: block;
+    font-size: 120px;
+    margin: auto;
+    width: 50%;
 
+}
+.font-grade-f {
+    color: #FF4A55 !important;
+}
+.font-grade-a {
+    color: #87CB16 !important;
+}

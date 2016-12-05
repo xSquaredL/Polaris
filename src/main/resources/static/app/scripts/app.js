@@ -8,7 +8,10 @@ var app = angular.module('app', [
     'ngSanitize',
     'ngTouch',
     'ui.router',
-    'app.dashboard'
+    'app.dashboard',
+    'app.tripadvisor',
+    'ngTagCloud',
+    'datatables'
   ])
   .run(
   [          '$rootScope', '$state', '$stateParams',
@@ -45,19 +48,27 @@ var app = angular.module('app', [
 	    	  }
           })
         .state('app.taskdetail', {
-          url: '/taskdetail/:id',
+          url: '/detail/:city/:hotel',
           templateUrl: 'views/taskdetail.html',
           controller: 'TaskDetailCtrl',
           data: {
             title: 'Detail'
           }
         })
-	      .state('app.yelp',{
+        .state('app.yelp',{
 	    	  url: '/yelp',
 	    	  templateUrl: 'views/yelp.html',
 	    	  controller: 'DashboardCtrl',
 	    	  data: {
 	    		  title: 'Yelp'
 	    	  }
-          });
+        })
+        .state('app.tripadvisor',{
+	    	  url: '/tripadvisor',
+	    	  templateUrl: 'views/tripadvisor.html',
+	    	  controller: 'TripAdvisorCtrl',
+	    	  data: {
+	    		  title: 'TripAdvisor'
+	    	  }
+        });
   }]);

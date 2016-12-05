@@ -1,0 +1,50 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class="card">
+			<div class="header">
+				<h4 class="title">Selected Hotels</h4>
+				<p class="category">in popular cities</p>
+				<button class="btn btn-success"
+					style="margin-right: 5px; display: inline-block"
+					ng-click="search(city)"
+					ng-repeat="city in cities">{{city}}</button>
+
+			</div>
+			<div class="content">
+			
+				<table datatable="ng" class="row-border hover" ng-if="businesses.length > 0">
+					<tr>
+						<th>Name</th>
+						<th>Rating</th>
+						<th></th>
+					</tr>
+					<tr ng-repeat="i in businesses">
+						<td>{{i.hotelName}} 
+						<p class="category">{{i.hotelRanking}}</p>
+						<p class="category text-success">{{i.numberOfReviews}}</p>
+						</td>
+						<td><i class="fa text-success"
+							ng-class="i.numBubbles >= 1 ? 'fa-star':'fa-star-o'"></i> <i
+							class="fa text-success"
+							ng-class="i.numBubbles >= 2 ? 'fa-star':'fa-star-o'"></i> <i
+							class="fa text-success"
+							ng-class="i.numBubbles >= 3 ? 'fa-star':'fa-star-o'"></i> <i
+							class="fa text-success"
+							ng-class="i.numBubbles >= 4 ? 'fa-star':'fa-star-o'"></i> <i
+							class="fa text-success"
+							ng-class="i.numBubbles >= 5 ? 'fa-star':'fa-star-o'"></i>
+							<p class="category">{{i.bubbles}}</p>
+							</td>
+						<td><a class="btn btn-simple"
+							href="#/app/detail/{{i.cityID}}/{{i.hotelID}}"><i
+								class="fa fa-tripadvisor text-success"></i></a></td>
+					</tr>
+				</table>
+
+
+			</div>
+		</div>
+	</div>
+
+
+</div>

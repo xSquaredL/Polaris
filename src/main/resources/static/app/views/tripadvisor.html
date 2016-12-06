@@ -11,34 +11,30 @@
 
 			</div>
 			<div class="content">
-			
-				<table datatable="ng" class="row-border hover" ng-if="businesses.length > 0">
-					<tr>
-						<th>Name</th>
-						<th>Rating</th>
-						<th></th>
-					</tr>
+				<table datatable="ng" class="table row-border hover" ng-if="businesses.length > 0">
+					<thead><tr>
+						<td>Name</td>
+						<td>Rating</td>
+						<td></td>
+					</tr></thead><tbody>
 					<tr ng-repeat="i in businesses">
 						<td>{{i.hotelName}} 
 						<p class="category">{{i.hotelRanking}}</p>
 						<p class="category text-success">{{i.numberOfReviews}}</p>
 						</td>
-						<td><i class="fa text-success"
-							ng-class="i.numBubbles >= 1 ? 'fa-star':'fa-star-o'"></i> <i
-							class="fa text-success"
-							ng-class="i.numBubbles >= 2 ? 'fa-star':'fa-star-o'"></i> <i
-							class="fa text-success"
-							ng-class="i.numBubbles >= 3 ? 'fa-star':'fa-star-o'"></i> <i
-							class="fa text-success"
-							ng-class="i.numBubbles >= 4 ? 'fa-star':'fa-star-o'"></i> <i
-							class="fa text-success"
-							ng-class="i.numBubbles >= 5 ? 'fa-star':'fa-star-o'"></i>
+						<td>
+											<i class="fa text-success" ng-class="{'fa-star' : i.numBubbles >= 1, 'fa-star-o' : i.numBubbles == 0, 'fa-star-half-o' : i.numBubbles > 0 && i.numBubbles < 1}"></i> 
+											<i class="fa text-success" ng-class="{'fa-star' : i.numBubbles >= 2, 'fa-star-o' : i.numBubbles <= 1, 'fa-star-half-o' : i.numBubbles > 1 && i.numBubbles < 2}"></i> 
+											<i class="fa text-success" ng-class="{'fa-star' : i.numBubbles >= 3, 'fa-star-o' : i.numBubbles <= 2, 'fa-star-half-o' : i.numBubbles > 2 && i.numBubbles < 3}"></i> 
+											<i class="fa text-success" ng-class="{'fa-star' : i.numBubbles >= 4, 'fa-star-o' : i.numBubbles <= 3, 'fa-star-half-o' : i.numBubbles > 3 && i.numBubbles < 4}"></i> 
+											<i class="fa text-success" ng-class="{'fa-star' : i.numBubbles >= 5, 'fa-star-o' : i.numBubbles <= 4, 'fa-star-half-o' : i.numBubbles > 4 && i.numBubbles < 5}"></i> 
 							<p class="category">{{i.bubbles}}</p>
 							</td>
 						<td><a class="btn btn-simple"
 							href="#/app/detail/{{i.cityID}}/{{i.hotelID}}"><i
 								class="fa fa-tripadvisor text-success"></i></a></td>
 					</tr>
+					</tbody>
 				</table>
 
 

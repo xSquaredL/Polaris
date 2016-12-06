@@ -20,16 +20,13 @@
 								</tr>
 								<tr>
 									<td>Rating</td>
-									<td><i class="fa text-success"
-										ng-class="business.numBubbles >= 1 ? 'fa-star':'fa-star-o'"></i> <i
-										class="fa text-success"
-										ng-class="business.numBubbles >= 2 ? 'fa-star':'fa-star-o'"></i> <i
-										class="fa text-success"
-										ng-class="business.numBubbles >= 3 ? 'fa-star':'fa-star-o'"></i> <i
-										class="fa text-success"
-										ng-class="business.numBubbles >= 4 ? 'fa-star':'fa-star-o'"></i> <i
-										class="fa text-success"
-										ng-class="business.numBubbles >= 5 ? 'fa-star':'fa-star-o'"></i>
+									<td>
+											<i class="fa text-success" ng-class="{'fa-star' : business.numBubbles >= 1, 'fa-star-o' : business.numBubbles == 0, 'fa-star-half-o' : business.numBubbles > 0 && business.numBubbles < 1}"></i> 
+											<i class="fa text-success" ng-class="{'fa-star' : business.numBubbles >= 2, 'fa-star-o' : business.numBubbles <= 1, 'fa-star-half-o' : business.numBubbles > 1 && business.numBubbles < 2}"></i> 
+											<i class="fa text-success" ng-class="{'fa-star' : business.numBubbles >= 3, 'fa-star-o' : business.numBubbles <= 2, 'fa-star-half-o' : business.numBubbles > 2 && business.numBubbles < 3}"></i> 
+											<i class="fa text-success" ng-class="{'fa-star' : business.numBubbles >= 4, 'fa-star-o' : business.numBubbles <= 3, 'fa-star-half-o' : business.numBubbles > 3 && business.numBubbles < 4}"></i> 
+											<i class="fa text-success" ng-class="{'fa-star' : business.numBubbles >= 5, 'fa-star-o' : business.numBubbles <= 4, 'fa-star-half-o' : business.numBubbles > 4 && business.numBubbles < 5}"></i> 
+										
 							<p class="category text-success">{{business.bubbles}}</p>
 										</td>
 								</tr>
@@ -60,21 +57,64 @@
 								<tr>
 									<td>reviewer1</td>
 									<td>
-										<p><i class="fa text-success"
-											ng-class="business.rating >= 1 ? 'fa-star':'fa-star-o'"></i> <i
-											class="fa text-success"
-											ng-class="business.rating >= 2 ? 'fa-star':'fa-star-o'"></i> <i
-											class="fa text-success"
-											ng-class="business.rating >= 3 ? 'fa-star':'fa-star-o'"></i> <i
-											class="fa text-success"
-											ng-class="business.rating >= 4 ? 'fa-star':'fa-star-o'"></i> <i
-											class="fa text-success"
-											ng-class="business.rating >= 5 ? 'fa-star':'fa-star-o'"></i></p>
+										<p>
+											<i class="fa text-success" ng-class="{'fa-star' : business.rating >= 1, 'fa-star-o' : business.rating == 0, 'fa-star-half-o' : business.rating > 0 && business.rating < 1}"></i> 
+											<i class="fa text-success" ng-class="{'fa-star' : business.rating >= 2, 'fa-star-o' : business.rating <= 1, 'fa-star-half-o' : business.rating > 1 && business.rating < 2}"></i> 
+											<i class="fa text-success" ng-class="{'fa-star' : business.rating >= 3, 'fa-star-o' : business.rating <= 2, 'fa-star-half-o' : business.rating > 2 && business.rating < 3}"></i> 
+											<i class="fa text-success" ng-class="{'fa-star' : business.rating >= 4, 'fa-star-o' : business.rating <= 3, 'fa-star-half-o' : business.rating > 3 && business.rating < 4}"></i> 
+											<i class="fa text-success" ng-class="{'fa-star' : business.rating >= 5, 'fa-star-o' : business.rating <= 4, 'fa-star-half-o' : business.rating > 4 && business.rating < 5}"></i> 
+
+										</p>
 											This is the review
 									</td>
 									<td align="center">
 									<p class="text-danger">-0.1761</p>
 									<p class="category">Highly Unreliable</p>
+									</td>
+									<td align="center">
+										<button class="btn btn-simple">
+											<i class="fa fa-thumbs-o-up text-success"></i>
+										</button>
+										<button class="btn btn-simple">
+											<i class="fa fa-thumbs-o-down text-danger"></i>
+										</button>
+									</td>								
+								</tr>
+								
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="card">
+					<div class="header">
+						<h4 class="title">Top Trustful Reviews</h4>
+					</div>
+					<div class="content">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Reviewer</th>
+									<th>Review</th>
+									<th style="text-align:center">Ranking Score</th>
+									<th width="35px" style="text-align:center">Feedback</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>reviewer1</td>
+									<td>
+										<p>
+											<i class="fa text-success" ng-class="{'fa-star' : business.rating >= 1, 'fa-star-o' : business.rating == 0, 'fa-star-half-o' : business.rating > 0 && business.rating < 1}"></i> 
+											<i class="fa text-success" ng-class="{'fa-star' : business.rating >= 2, 'fa-star-o' : business.rating <= 1, 'fa-star-half-o' : business.rating > 1 && business.rating < 2}"></i> 
+											<i class="fa text-success" ng-class="{'fa-star' : business.rating >= 3, 'fa-star-o' : business.rating <= 2, 'fa-star-half-o' : business.rating > 2 && business.rating < 3}"></i> 
+											<i class="fa text-success" ng-class="{'fa-star' : business.rating >= 4, 'fa-star-o' : business.rating <= 3, 'fa-star-half-o' : business.rating > 3 && business.rating < 4}"></i> 
+											<i class="fa text-success" ng-class="{'fa-star' : business.rating >= 5, 'fa-star-o' : business.rating <= 4, 'fa-star-half-o' : business.rating > 4 && business.rating < 5}"></i> 
+											</p>
+											This is the review
+									</td>
+									<td align="center">
+									<p class="text-success">0.1761</p>
+									<p class="category">Highly Reliable</p>
 									</td>
 									<td align="center">
 										<button class="btn btn-simple">
@@ -110,10 +150,10 @@
 						<hr>
 					</div>
 					<div class="content">
-						<div class="grade-rating font-grade-a">A</div>
+						<div class="grade-rating" ng-class="grade.class">{{grade.grade}}</div>
 						<div class="footer">
 							<hr>
-							<div>Detected 5% low quality reviews</div>
+							<div>Detected {{grade.lowQualityReview}}% low quality reviews</div>
 						</div>
 					</div>
 

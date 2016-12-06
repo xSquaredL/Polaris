@@ -14,7 +14,6 @@
 /build
 /code
 .classpath
-.project
 .settings
 .metadata
 .factorypath

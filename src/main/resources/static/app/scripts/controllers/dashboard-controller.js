@@ -50,7 +50,7 @@ project.controller('DashboardCtrl', ['$scope','MyYelpAPI', function ($scope, MyY
   };
 });
 
-project.controller('TaskDetailCtrl',['$scope','$stateParams','$http', function($scope, $stateParams,$http) {
+project.controller('TaskDetailCtrl',['$scope','$stateParams','$http','$timeout', function($scope, $stateParams,$http,$timeout) {
   
   $scope.data = [
       {text: "crab", weight: 13},
@@ -92,6 +92,15 @@ project.controller('TaskDetailCtrl',['$scope','$stateParams','$http', function($
 	  {grade:"D",lowQualityReview:"35", class:"font-grade-d"},
 	  {grade:"F",lowQualityReview:"60", class:"font-grade-f"}
   ];
-  $scope.grade = $scope.grades[parseInt($stateParams.hotel) % 5];
+  $scope.grade = {grade:"?",lowQualityReview:"?", class:"font-grade-a"};
 
+  $scope.analyzeState = 0;
+  $scope.startAnalyzing = function(){
+	  $scope.analyzeState = 1;
+	  $timeout( function(){ 
+		  $scope.analyzeState = 2; 
+		  $scope.grade = $scope.grades[parseInt($stateParams.hotel) % 5];
+	  }, 5000);
+  }
+  
 }]);

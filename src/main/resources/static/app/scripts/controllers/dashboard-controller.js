@@ -50,7 +50,7 @@ project.controller('DashboardCtrl', ['$scope','MyYelpAPI', function ($scope, MyY
   };
 });
 
-project.controller('TaskDetailCtrl',['$scope','$stateParams','$http', function($scope, $stateParams,$http) {
+project.controller('TaskDetailCtrl',['$scope','$stateParams','$http','$timeout', function($scope, $stateParams,$http,$timeout) {
 
   $scope.data = [
       {text: "crab", weight: 13},
@@ -58,14 +58,20 @@ project.controller('TaskDetailCtrl',['$scope','$stateParams','$http', function($
       {text: "line", weight: 9.4},
       {text: "station", weight: 8},
       {text: "step", weight: 6.2},
+      {text: "fresh", weight: 6.2},
       {text: "buffet", weight: 5},
       {text: "best", weight: 5},
       {text: "time", weight: 5},
       {text: "vegas", weight: 5},
+      {text: "sushi", weight: 5},
       {text: "lamb", weight: 4},
       {text: "good", weight: 4},
+      {text: "like", weight: 3},
       {text: "vegetarian", weight: 3},
-      {text: "shrimp", weight: 2}
+      {text: "food", weight: 8},
+      {text: "vegas", weight: 7},
+      {text: "vegetarian", weight: 3},
+      {text: "expensive", weight: 2}
     ];
 
   $scope.business={};
@@ -78,4 +84,23 @@ project.controller('TaskDetailCtrl',['$scope','$stateParams','$http', function($
 	  }, function(){
 
 	  });
+
+  $scope.grades=[
+	  {grade:"A",lowQualityReview:"5", class:"font-grade-a"},
+	  {grade:"B",lowQualityReview:"15", class:"font-grade-b"},
+	  {grade:"C",lowQualityReview:"25", class:"font-grade-c"},
+	  {grade:"D",lowQualityReview:"35", class:"font-grade-d"},
+	  {grade:"F",lowQualityReview:"60", class:"font-grade-f"}
+  ];
+  $scope.grade = {grade:"?",lowQualityReview:"?", class:"font-grade-a"};
+
+  $scope.analyzeState = 0;
+  $scope.startAnalyzing = function(){
+	  $scope.analyzeState = 1;
+	  $timeout( function(){
+		  $scope.analyzeState = 2;
+		  $scope.grade = $scope.grades[parseInt($stateParams.hotel) % 5];
+	  }, 5000);
+  }
+
 }]);

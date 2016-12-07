@@ -72,3 +72,37 @@
 .font-grade-a {
     color: #87CB16 !important;
 }
+.font-grade-b {
+    color: #DCDC18 !important;
+}
+.font-grade-c {
+    color: #DC9118 !important;
+}
+.font-grade-d {
+    color: #DC5018 !important;
+}
+.dataTables_length {
+    float: left !important;
+}
+.dataTables_filter {
+    float: right !important;
+}
+a {
+    color: #049F0C;
+}
+a:hover, a:focus {
+    color: #049F0C;
+    text-decoration: none;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    color: #049F0C;
+    background: white;
+    border: 1px solid #049F0C;
+    cursor:pointer;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    color: #fff!important;
+    border: 0;
+    background: #87CB16;
+}
+

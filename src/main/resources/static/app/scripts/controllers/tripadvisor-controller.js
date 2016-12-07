@@ -5,20 +5,20 @@ angular.module('app.tripadvisor', ['datatables'])
 	  $http.get('../api/hotels/cities').then(function(response){
 		  $scope.cities = response.data;
 	  }, function(){
-		  
+
 	  });
-	  
+
 	  $scope.search = function(city){
-		  console.log(city)
+		  console.log(city);
 		  $http({
-		    url: '../api/hotels/search', 
+		    url: '../api/hotels/search',
 		    method: "GET",
 		    params: {"city": city}
 		 }).then(function(response){
 			  $scope.businesses = response.data;
 		  }, function(){
-			  
+
 		  });
-	  }
-	  
+	  };
+
 }]);

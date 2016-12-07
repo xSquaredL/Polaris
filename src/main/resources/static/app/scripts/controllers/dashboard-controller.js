@@ -50,21 +50,6 @@ project.controller('DashboardCtrl', ['$scope','MyYelpAPI', function ($scope, MyY
   };
 });
 
-
-// project.controller('TaskDetailCtrl',['$scope','$routeParams', function($scope, $routeParams) {
-//   console.log('hehe');
-//   console.log($routeParams);
-//   $scope.objectid = $routeParams.id;
-//   console.log($scope.objectid);
-//   $scope.newobject = {};
-//   for(var i=0; i < objectlist.length;i++){
-//     if(objectlist[i].id === $scope.objectid){
-//       $scope.newobject = objectlist[i];
-//     }
-//   }
-//   console.log('detail');
-//   console.log($scope.newobject);
-
 project.controller('TaskDetailCtrl',['$scope','$stateParams','$http', function($scope, $stateParams,$http) {
 
   $scope.data = [
@@ -93,5 +78,4 @@ project.controller('TaskDetailCtrl',['$scope','$stateParams','$http', function($
 	  }, function(){
 
 	  });
-
 }]);

@@ -18,16 +18,16 @@
 						<td></td>
 					</tr></thead><tbody>
 					<tr ng-repeat="i in businesses">
-						<td>{{i.hotelName}} 
+						<td>{{i.hotelName}}
 						<p class="category">{{i.hotelRanking}}</p>
 						<p class="category text-success">{{i.numberOfReviews}}</p>
 						</td>
 						<td>
-											<i class="fa text-success" ng-class="{'fa-star' : i.numBubbles >= 1, 'fa-star-o' : i.numBubbles == 0, 'fa-star-half-o' : i.numBubbles > 0 && i.numBubbles < 1}"></i> 
-											<i class="fa text-success" ng-class="{'fa-star' : i.numBubbles >= 2, 'fa-star-o' : i.numBubbles <= 1, 'fa-star-half-o' : i.numBubbles > 1 && i.numBubbles < 2}"></i> 
-											<i class="fa text-success" ng-class="{'fa-star' : i.numBubbles >= 3, 'fa-star-o' : i.numBubbles <= 2, 'fa-star-half-o' : i.numBubbles > 2 && i.numBubbles < 3}"></i> 
-											<i class="fa text-success" ng-class="{'fa-star' : i.numBubbles >= 4, 'fa-star-o' : i.numBubbles <= 3, 'fa-star-half-o' : i.numBubbles > 3 && i.numBubbles < 4}"></i> 
-											<i class="fa text-success" ng-class="{'fa-star' : i.numBubbles >= 5, 'fa-star-o' : i.numBubbles <= 4, 'fa-star-half-o' : i.numBubbles > 4 && i.numBubbles < 5}"></i> 
+											<i class="fa text-success" ng-class="{'fa-star' : i.numBubbles >= 1, 'fa-star-o' : i.numBubbles == 0, 'fa-star-half-o' : i.numBubbles > 0 && i.numBubbles < 1}"></i>
+											<i class="fa text-success" ng-class="{'fa-star' : i.numBubbles >= 2, 'fa-star-o' : i.numBubbles <= 1, 'fa-star-half-o' : i.numBubbles > 1 && i.numBubbles < 2}"></i>
+											<i class="fa text-success" ng-class="{'fa-star' : i.numBubbles >= 3, 'fa-star-o' : i.numBubbles <= 2, 'fa-star-half-o' : i.numBubbles > 2 && i.numBubbles < 3}"></i>
+											<i class="fa text-success" ng-class="{'fa-star' : i.numBubbles >= 4, 'fa-star-o' : i.numBubbles <= 3, 'fa-star-half-o' : i.numBubbles > 3 && i.numBubbles < 4}"></i>
+											<i class="fa text-success" ng-class="{'fa-star' : i.numBubbles >= 5, 'fa-star-o' : i.numBubbles <= 4, 'fa-star-half-o' : i.numBubbles > 4 && i.numBubbles < 5}"></i>
 							<p class="category">{{i.bubbles}}</p>
 							</td>
 						<td><a class="btn btn-simple"

@@ -51,7 +51,7 @@ project.controller('DashboardCtrl', ['$scope','MyYelpAPI', function ($scope, MyY
 });
 
 project.controller('TaskDetailCtrl',['$scope','$stateParams','$http','$timeout', function($scope, $stateParams,$http,$timeout) {
-  
+
   $scope.data = [
       {text: "crab", weight: 13},
       {text: "wait", weight: 10.5},
@@ -73,18 +73,18 @@ project.controller('TaskDetailCtrl',['$scope','$stateParams','$http','$timeout',
       {text: "vegetarian", weight: 3},
       {text: "expensive", weight: 2}
     ];
-    
+
   $scope.business={};
   $http({
-	    url: '../api/hotels/search', 
+	    url: '../api/hotels/search',
 	    method: "GET",
 	    params: {"city": $stateParams.city, "hotel": $stateParams.hotel}
 	 }).then(function(response){
 		 $scope.business = response.data[0];
 	  }, function(){
-		  
+
 	  });
-  
+
   $scope.grades=[
 	  {grade:"A",lowQualityReview:"5", class:"font-grade-a"},
 	  {grade:"B",lowQualityReview:"15", class:"font-grade-b"},
@@ -97,10 +97,10 @@ project.controller('TaskDetailCtrl',['$scope','$stateParams','$http','$timeout',
   $scope.analyzeState = 0;
   $scope.startAnalyzing = function(){
 	  $scope.analyzeState = 1;
-	  $timeout( function(){ 
-		  $scope.analyzeState = 2; 
+	  $timeout( function(){
+		  $scope.analyzeState = 2;
 		  $scope.grade = $scope.grades[parseInt($stateParams.hotel) % 5];
 	  }, 5000);
   }
-  
+
 }]);

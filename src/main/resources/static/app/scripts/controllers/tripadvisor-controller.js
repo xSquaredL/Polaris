@@ -1,5 +1,5 @@
 'use strict';
-angular.module('app.tripadvisor', ['datatables'])
+angular.module('app.tripadvisor', ['datatables','ngNotify'])
   .controller('TripAdvisorCtrl', ['$scope','$http', function ($scope,$http) {
 	  $scope.cities = [];
 	  $http.get('../api/hotels/cities').then(function(response){
@@ -20,5 +20,7 @@ angular.module('app.tripadvisor', ['datatables'])
 			  
 		  });
 	  }
+	  
+	  
 	  
 }]);

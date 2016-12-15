@@ -66,7 +66,7 @@
 						
 						</div>
 					</div>
-					<div ng-switch-when="2">
+					<div ng-switch-when="2" ng-show="report != null">
 						<div class="card">
 							<div class="header">
 								<h4 class="title">Top Suspicious Reviews</h4>
@@ -75,18 +75,17 @@
 								<table class="table">
 									<thead>
 										<tr>
-											<th>Reviewer</th>
 											<th>Review</th>
 											<th style="text-align: center">Ranking Score</th>
 											<th width="35px" style="text-align: center">Feedback</th>
+											<th>Details</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>reviewer1</td>
+										<tr ng-repeat="r in report.topFake">
 											<td>
 												<p>
-													<i class="fa text-success"
+												<!-- 	<i class="fa text-success"
 														ng-class="{'fa-star' : business.rating >= 1, 'fa-star-o' : business.rating == 0, 'fa-star-half-o' : business.rating > 0 && business.rating < 1}"></i>
 													<i class="fa text-success"
 														ng-class="{'fa-star' : business.rating >= 2, 'fa-star-o' : business.rating <= 1, 'fa-star-half-o' : business.rating > 1 && business.rating < 2}"></i>
@@ -96,21 +95,24 @@
 														ng-class="{'fa-star' : business.rating >= 4, 'fa-star-o' : business.rating <= 3, 'fa-star-half-o' : business.rating > 3 && business.rating < 4}"></i>
 													<i class="fa text-success"
 														ng-class="{'fa-star' : business.rating >= 5, 'fa-star-o' : business.rating <= 4, 'fa-star-half-o' : business.rating > 4 && business.rating < 5}"></i>
-
-												</p> This is the review
+ -->
+												</p> {{r.review}}
 											</td>
 											<td align="center">
-												<p class="text-danger">-0.1761</p>
-												<p class="category">Highly Unreliable</p>
+												<p class="text-danger">{{r.ranking_score}}</p>
+												<p class="category">{{r.rating}}</p>
 											</td>
 											<td align="center">
-												<button class="btn btn-simple">
+												<button class="btn btn-simple" ng-click="vote()">
 													<i class="fa fa-thumbs-o-up text-success"></i>
 												</button>
-												<button class="btn btn-simple">
+												<button class="btn btn-simple" ng-click="vote()">
 													<i class="fa fa-thumbs-o-down text-danger"></i>
 												</button>
 											</td>
+											<td><a class="btn btn-simple" target="_blank"
+							href="https://www.tripadvisor.com/ShowUserReviews-g{{city}}-d{{hotel}}-r{{r.id}}"><i
+								class="fa fa-tripadvisor text-success"></i></a></td>
 										</tr>
 
 									</tbody>
@@ -125,18 +127,17 @@
 								<table class="table">
 									<thead>
 										<tr>
-											<th>Reviewer</th>
 											<th>Review</th>
 											<th style="text-align: center">Ranking Score</th>
 											<th width="35px" style="text-align: center">Feedback</th>
+											<th>Details</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>reviewer1</td>
+										<tr ng-repeat="r in report.topTrue">
 											<td>
 												<p>
-													<i class="fa text-success"
+												<!-- 	<i class="fa text-success"
 														ng-class="{'fa-star' : business.rating >= 1, 'fa-star-o' : business.rating == 0, 'fa-star-half-o' : business.rating > 0 && business.rating < 1}"></i>
 													<i class="fa text-success"
 														ng-class="{'fa-star' : business.rating >= 2, 'fa-star-o' : business.rating <= 1, 'fa-star-half-o' : business.rating > 1 && business.rating < 2}"></i>
@@ -146,27 +147,31 @@
 														ng-class="{'fa-star' : business.rating >= 4, 'fa-star-o' : business.rating <= 3, 'fa-star-half-o' : business.rating > 3 && business.rating < 4}"></i>
 													<i class="fa text-success"
 														ng-class="{'fa-star' : business.rating >= 5, 'fa-star-o' : business.rating <= 4, 'fa-star-half-o' : business.rating > 4 && business.rating < 5}"></i>
-												</p> This is the review
+ -->
+												</p> {{r.review}}
 											</td>
 											<td align="center">
-												<p class="text-success">0.1761</p>
-												<p class="category">Highly Reliable</p>
+												<p class="text-danger">{{r.ranking_score}}</p>
+												<p class="category">{{r.rating}}</p>
 											</td>
 											<td align="center">
-												<button class="btn btn-simple">
+												<button class="btn btn-simple" ng-click="vote()">
 													<i class="fa fa-thumbs-o-up text-success"></i>
 												</button>
-												<button class="btn btn-simple">
+												<button class="btn btn-simple" ng-click="vote()">
 													<i class="fa fa-thumbs-o-down text-danger"></i>
 												</button>
 											</td>
+											<td><a class="btn btn-simple" target="_blank"
+							href="https://www.tripadvisor.com/ShowUserReviews-g{{city}}-d{{hotel}}-r{{r.id}}"><i
+								class="fa fa-tripadvisor text-success"></i></a></td>
 										</tr>
 
 									</tbody>
 								</table>
 							</div>
 						</div>
-						<div class="card">
+						<div class="card" ng-if="data!=null">
 							<div class="header">
 								<h4 class="title">Topics</h4>
 								<hr>
@@ -192,9 +197,6 @@
 					<div class="content">
 						<div class="grade-rating" ng-class="grade.class">{{grade.grade}}</div>
 						<div class="footer">
-							<hr>
-							<div>Detected {{grade.lowQualityReview}}% low quality
-								reviews</div>
 						</div>
 					</div>
 
@@ -205,10 +207,10 @@
 					</div>
 					<div class="content">
 						<hr>
-						<button class="btn btn-simple">
+						<button class="btn btn-simple" ng-click="vote()">
 							<i class="fa fa-thumbs-o-up text-success"></i>
 						</button>
-						<button class="btn btn-simple">
+						<button class="btn btn-simple" ng-click="vote()">
 							<i class="fa fa-thumbs-o-down text-danger"></i>
 						</button>
 					</div>

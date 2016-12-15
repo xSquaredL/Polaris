@@ -4,7 +4,10 @@
 			<div class="header">
 				<h4 class="title">Selected Hotels</h4>
 				<p class="category">in popular cities</p>
-				<button class="btn btn-success"
+				<button class="btn btn-info" 
+					style="margin-right: 5px; display: inline-block"
+					ng-click="search('Recent')">Recent Analysis</button>
+				<button class="btn btn-success" 
 					style="margin-right: 5px; display: inline-block"
 					ng-click="search(city)"
 					ng-repeat="city in cities">{{city}}</button>

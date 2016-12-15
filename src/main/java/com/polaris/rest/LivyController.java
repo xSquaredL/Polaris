@@ -1,6 +1,7 @@
 package com.polaris.rest;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectOutputStream;
@@ -28,10 +29,12 @@ public class LivyController {
     		consumes={MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE}, 
     		produces={MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	public Batch submitBatchRequest(@RequestBody Request request) throws Exception {
-    	String url = "https://mysparkcluster.azurehdinsight.net/livy/batches";
+    	String url = "https://polaris-spark.azurehdinsight.net/livy/batches";
 	    LivySubmitRequest data = new LivySubmitRequest();
-	    data.setFile("wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar");
-	    data.setClassName("com.microsoft.spark.test.SimpleFile");
+	    data.setFile("wasbs://polaris-spark-training@polaris598.blob.core.windows.net/polarissparkapp_2.10-1.0.jar");
+	    data.setClassName("FakeReviewDetector");
+	    String requestId = "1234";
+	    data.setArgs(new String[]{String.valueOf(request.getLocationId()), String.valueOf(request.getBusinessId()), requestId});
 		String resp = post(url, data);
     	return toBatch(resp);
 	}
@@ -39,7 +42,7 @@ public class LivyController {
 	@RequestMapping(method=RequestMethod.GET, value="batches/{batchId}", 
     		produces={MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
 	public Batch getBatchRequest(@PathVariable int batchId) throws Exception {
-		String url="https://mysparkcluster.azurehdinsight.net/livy/batches/" + batchId;
+		String url="https://polaris-spark.azurehdinsight.net/livy/batches/" + batchId;
 		String resp = get(url);
     	return toBatch(resp);
 	}
@@ -50,29 +53,31 @@ public class LivyController {
 		return batch;
 	}
     
-    private String post(String url, Object data) throws Exception{
+    private String post(String url, LivySubmitRequest data) throws Exception{
     	try {
     	    URL obj = new URL(url);
     	    HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
     	    con.setRequestProperty("Content-Type", "application/json");
     	    con.setDoOutput(true);
     	    con.setRequestMethod("PUT");
-    	    String userpass = "user" + ":" + "pass";
+    	    String userpass = "admin" + ":" + "Polaris@CS598";
     	    String encoding = new String(Base64.encodeBase64(userpass.getBytes()));
     	    con.setRequestProperty("Authorization", "Basic " + encoding);
     	    con.setRequestProperty("Content-Type", "application/json");
     	    con.setRequestProperty("Accept", "application/json");
     	    
-    	    
+    	    ObjectMapper mapper = new ObjectMapper();
+    	    String dataString = mapper.writeValueAsString(data);
+
     	    con.setDoOutput(true);
-    	    ObjectOutputStream wr = new ObjectOutputStream(con.getOutputStream());
-    		wr.writeObject(data);
+    	    DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+    	    wr.writeBytes(dataString);
     		wr.flush();
     		wr.close();
 
     		int responseCode = con.getResponseCode();
     		System.out.println("\nSending 'POST' request to URL : " + url);
-    		System.out.println("Post data : " + data);
+    		System.out.println("Post data : " + dataString);
     		System.out.println("Response Code : " + responseCode);
 
     		BufferedReader in = new BufferedReader(
@@ -95,7 +100,7 @@ public class LivyController {
 
 		URL obj = new URL(url);
 		HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
-	    String userpass = "user" + ":" + "pass";
+	    String userpass = "admin" + ":" + "Polaris@CS598";
 	    String encoding = new String(Base64.encodeBase64(userpass.getBytes()));
 	    con.setRequestProperty("Authorization", "Basic " + encoding);
 	    con.setRequestProperty("Accept", "application/json");

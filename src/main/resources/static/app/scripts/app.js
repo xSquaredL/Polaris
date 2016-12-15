@@ -11,7 +11,8 @@ var app = angular.module('app', [
     'app.dashboard',
     'app.tripadvisor',
     'ngTagCloud',
-    'datatables'
+    'datatables',
+    'ngNotify'
   ])
   .run(
   [          '$rootScope', '$state', '$stateParams',
@@ -61,6 +62,13 @@ var app = angular.module('app', [
 	    	  controller: 'DashboardCtrl',
 	    	  data: {
 	    		  title: 'Yelp'
+	    	  }
+        })
+        .state('app.amazon',{
+	    	  url: '/amazon',
+	    	  templateUrl: 'views/amazon.html',
+	    	  data: {
+	    		  title: 'Amazon'
 	    	  }
         })
         .state('app.tripadvisor',{
